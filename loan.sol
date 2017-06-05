@@ -53,5 +53,23 @@ contract System{
       }
     }
 
+    function pay_debts(address lender_address, uint money) returns (bool){
+
+      if (money >= 0) {
+
+        if(lender_address.send(money)){
+          borrowers[msg.sender] -= money;
+          valid = true;
+        }else{
+          valid = false;
+        }
+        return valid;
+
+      }else{
+
+        return false;
+
+      }
+    }
 
 }
