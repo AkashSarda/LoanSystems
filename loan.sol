@@ -1,10 +1,11 @@
-pragma solidity ^0.4.0;
-
 contract System{
 
     // mapping stores
     mapping(address => uint) lenders;
     mapping(address => uint) borrowers;
+
+    event DebtPaid(address lender_addrs, uint lender_bal,address sender_addrs,uint sender_bal);
+    event Money_Borrowed(address lender_addrs, uint lender_bal,address sender_addrs,uint sender_bal);
     bool valid;
 
     address public owner;
@@ -31,6 +32,7 @@ contract System{
           valid = true;
 //          lenders[lender_address] -= money;
           borrowers[msg.sender] += money;
+          Money_Borrowed(lender_address,lender_address.balance,msg.sender,msg.sender.balance);
         }else{
           valid = false;
         }
@@ -47,10 +49,11 @@ contract System{
     }
 
     function pay_debts(address lender_address, uint money) returns (bool){
-
       if (money >= 0) {
 
         if(lender_address.send(money)){
+
+          DebtPaid(lender_address,lender_address.balance,msg.sender,msg.sender.balance);
           borrowers[msg.sender] -= money;
           valid = true;
         }else{
@@ -64,6 +67,7 @@ contract System{
 
       }
     }
+
 
     function withdrawFunds(uint money) returns  (bool) {
 
