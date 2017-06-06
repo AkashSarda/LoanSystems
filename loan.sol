@@ -43,6 +43,7 @@ contract System{
         return false;
       }
     }
+
     function getBalance(address addrs) returns(uint){
         return addrs.balance;
     }
@@ -66,4 +67,6 @@ contract System{
 
       }
     }
-} 
+}  
+
+
