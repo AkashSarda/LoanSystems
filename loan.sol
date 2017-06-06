@@ -29,7 +29,7 @@ contract System{
       if(lenders[lender_address] > money) {
         if(msg.sender.send(money)){
           valid = true;
-          lenders[lender_address] -= money;
+//          lenders[lender_address] -= money;
           borrowers[msg.sender] += money;
         }else{
           valid = false;
@@ -41,6 +41,7 @@ contract System{
         return false;
       }
     }
+
     function getBalance(address addrs) returns(uint){
         return addrs.balance;
     }
@@ -63,4 +64,23 @@ contract System{
 
       }
     }
+
+    function withdrawFunds(uint money) returns  (bool) {
+
+      if (lenders[msg.sender] >= money){
+        valid = false;
+        if(msg.sender.send(money)){
+          valid = true;
+          lenders[msg.sender] -= money;
+        }else{
+          valid = false;
+        }
+
+        return false;
+      }else{
+        return false;
+      }
+
+    }
+
 }
