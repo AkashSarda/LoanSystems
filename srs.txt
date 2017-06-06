@@ -1,0 +1,26 @@
+Constraints :
+
+1. borrower - lender problem. Evaluate risk for the contract owner. The difference of deadlines between lender and borrower is essentially the risk of the contract owner who has to now refund the lender as well as wait for the money from the borrower.
+
+2. The asset problem. We haven't undertaken any asset from the borrower yet. It is important if the borrower goes insolvent.
+
+3. Currently the borrower needs to know the lender address. This has to be solved.
+
+4. Lender risk factor. The amount of borrower per lender account is the prime risk for the contracter. our software should minimize this risk.
+
+rules:
+
+1. Assets : 
+The contract regaurding the asset is to be digitally signed by the borrower and verified by the contracter. 
+If the borrower excceeds the deadline, then the asset becomes the property of the contracter. 
+
+2. Deadlines :
+
+The borrower who has pledged his asset for the sake of loan, has a deadline to payback. If he exceeds the deadline, then he loses the asset.
+The lender can pull out. He gets interest on his pledged amount as long as he keeps his money with the contracter. But, he has the power to pull out his funds. This reimbursement will be given by the contracter. 
+
+3. Role of Contracter:
+
+The role of the contracter is to act as the intermediate who keeps the money between the lender and borrower, both not knowing each other. The lender deposits some amount with the contracter, who then gives money to the borrower. The contracter earns commission in this process.
+
+
