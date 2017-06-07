@@ -1,9 +1,12 @@
+pragma solidity ^0.4.0;
+
 contract System{
 
     // mapping stores
     mapping(address => uint) lenders;
     mapping(address => uint) borrowers;
 
+    event Deposit(address lender, uint amount);
     event DebtPaid(address lender_addrs, uint lender_bal,address sender_addrs,uint sender_bal);
     event Money_Borrowed(address lender_addrs, uint lender_bal,address sender_addrs,uint sender_bal);
     bool valid;
@@ -24,6 +27,7 @@ contract System{
 
     function lend(uint money) payable{
       lenders[msg.sender] += money;
+      Desposit(msg.sender, money);
     }
 
     function borrow_money(uint money, address lender_address) returns (bool) {
