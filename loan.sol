@@ -1,8 +1,6 @@
 pragma solidity ^0.4.0;
 
 contract System{
-
-
     struct Loan{
       uint timestamp;
       uint amount;
@@ -77,24 +75,17 @@ contract System{
         return addrs.balance;
     }
 
-    function pay_debts(address lender_address, uint money) payable returns (bool){
-      if (money >= 0 && borrowers[msg.sender].borrowed == true) {
-
-        if(lender_address.send(money)){
-
-          borrowers[msg.sender].amount -= money;
-
+    function pay_debts() payable returns (bool){
+      if (borrowers[msg.sender].borrowed == true) {
+          borrowers[msg.sender].amount -= msg.value;
           if (borrowers[msg.sender].amount == 0){
             borrowers[msg.sender].borrowed = false;
           }
 
           valid = true;
-          DebtPaid(lender_address,lender_address.balance,msg.sender,msg.sender.balance);
+          DebtPaid(msg.sender,msg.value);
 
-        }else{
-          valid = false;
-        }
-        return valid;
+          return valid;
 
       }else{
 
