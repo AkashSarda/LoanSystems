@@ -1,7 +1,7 @@
 pragma solidity ^0.4.0;
 
 contract System{
-    uint256 loanid;
+
 
     struct Loan{
       uint timestamp;
@@ -9,17 +9,9 @@ contract System{
       bool active;
     }
 
-    struct AccountEntry{
-      uint timestamp;
-      uint amount;
-    }
-
-
     struct Lenders{
       uint balance;
       uint timestamp_of_creation;
-      AccountEntry[] deposits;
-      AccountEntry[] withdrawals;
     }
 
     struct Borrowers{
@@ -27,8 +19,6 @@ contract System{
       uint timestamp;
       uint timestamp_of_creation;
       bool borrowed;
-      mapping(uint256 => Loan) loans;
-      AccountEntry[] moneygivenback;
     }
 
     // mapping stores
@@ -58,20 +48,18 @@ contract System{
       borrowers[msg.sender].borrowed = false;
     }
 
-    function lend(uint money) payable{
-      lenders[msg.sender].balance += money;
-      lenders[msg.sender].deposits.push(AccountEntry(now, money));
-      Deposit(msg.sender, money);
+    function lend() payable{
+      lenders[msg.sender].balance += msg.value;
+      Deposit(msg.sender, msg.value);
     }
 
-    function borrow_money(uint money, address lender_address) returns (bool) {
-      if(lenders[lender_address].balance > money && borrowers[msg.sender].borrowed == false) {
+    function borrow_money(uint money) returns (bool) {
+      if(borrowers[msg.sender].borrowed == false) {
         if(msg.sender.send(money)){
           valid = true;
 //          lenders[lender_address] -= money;
           borrowers[msg.sender].borrowed = true;
           borrowers[msg.sender].amount += money;
-          borrowers[msg.sender].loans[loanid].amount = money;
           borrowers[msg.sender].timestamp = now;
           Money_Borrowed(lender_address,lender_address.balance,msg.sender,msg.sender.balance);
         }else{
@@ -122,12 +110,11 @@ contract System{
         if(msg.sender.send(money)){
           valid = true;
           lenders[msg.sender].balance -= money;
-          lenders[msg.sender].withdrawals.push(AccountEntry(now, money));
         }else{
           valid = false;
         }
 
-        return false;
+        return valid;
       }else{
         return false;
       }
@@ -135,4 +122,3 @@ contract System{
     }
 
 }
-
