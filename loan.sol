@@ -25,9 +25,10 @@ contract System{
     struct Borrowers{
       uint amount;
       uint timestamp;
+      uint timestamp_of_creation;
       bool borrowed;
       mapping(uint256 => Loan) loans;
-      AccountsEntry[] moneygivenback;
+      AccountEntry[] moneygivenback;
     }
 
     // mapping stores
@@ -52,7 +53,7 @@ contract System{
     }
 
     function registerBorrower(){
-      borrowers[msg.sender].amount = 0
+      borrowers[msg.sender].amount = 0;
       borrowers[msg.sender].timestamp_of_creation = now;
       borrowers[msg.sender].borrowed = false;
     }
@@ -60,11 +61,11 @@ contract System{
     function lend(uint money) payable{
       lenders[msg.sender].balance += money;
       lenders[msg.sender].deposits.push(AccountEntry(now, money));
-      Desposit(msg.sender, money);
+      Deposit(msg.sender, money);
     }
 
     function borrow_money(uint money, address lender_address) returns (bool) {
-      if(lenders[lender_address] > money && borrowers[msg.sender].borrowed == false) {
+      if(lenders[lender_address].balance > money && borrowers[msg.sender].borrowed == false) {
         if(msg.sender.send(money)){
           valid = true;
 //          lenders[lender_address] -= money;
@@ -116,12 +117,12 @@ contract System{
 
 
     function withdrawFunds(uint money) returns  (bool) {
-
-      if (lenders[msg.sender] >= money){
+      if (lenders[msg.sender].balance >= money){
         valid = false;
         if(msg.sender.send(money)){
           valid = true;
-          lenders[msg.sender] -= money;
+          lenders[msg.sender].balance -= money;
+          lenders[msg.sender].withdrawals.push(AccountEntry(now, money));
         }else{
           valid = false;
         }
@@ -134,3 +135,4 @@ contract System{
     }
 
 }
+
