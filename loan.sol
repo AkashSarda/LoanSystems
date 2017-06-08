@@ -1,12 +1,6 @@
 pragma solidity ^0.4.0;
 
 contract System{
-    struct Loan{
-      uint timestamp;
-      uint amount;
-      bool active;
-    }
-
     struct Lenders{
       uint balance;
       uint timestamp_of_creation;
@@ -24,15 +18,14 @@ contract System{
     mapping(address => Borrowers) borrowers;
 
     event Deposit(address lender, uint amount);
-    event DebtPaid(address lender_addrs, uint lender_bal,address sender_addrs,uint sender_bal);
-    event Money_Borrowed(address lender_addrs, uint lender_bal,address sender_addrs,uint sender_bal);
+    event DebtPaid(uint contract_bal,address sender_addrs,uint sender_bal);
+    event Money_Borrowed(uint contract_bal,address sender_addrs,uint sender_bal);
     bool valid;
 
     address public owner;
 
     function System(){
       owner = msg.sender;
-      loanid = 0;
     }
 
     function registerLender(){
@@ -59,7 +52,7 @@ contract System{
           borrowers[msg.sender].borrowed = true;
           borrowers[msg.sender].amount += money;
           borrowers[msg.sender].timestamp = now;
-          Money_Borrowed(lender_address,lender_address.balance,msg.sender,msg.sender.balance);
+          Money_Borrowed(this.balance,msg.sender,msg.sender.balance);
         }else{
           valid = false;
         }
@@ -83,7 +76,7 @@ contract System{
           }
 
           valid = true;
-          DebtPaid(msg.sender,msg.value);
+          DebtPaid(this.balance,msg.sender,msg.value);
 
           return valid;
 
