@@ -3,7 +3,7 @@ pragma solidity ^0.4.4;
 contract POE {
   address public owner;
 
-  mapping (address => bytes32) asset_docs;
+  mapping (address => bytes32[]) asset_docs;
 
   function POE() {
     // constructor
