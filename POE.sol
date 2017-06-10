@@ -19,7 +19,7 @@ contract POE {
   }
 
 // the bank will verify the ownership and then proceed with the loan.
-  function verify(address asset_owner, bytes32 dochash) returns (bool){
+  function verify(address asset_owner, bytes32 dochash) constant returns (bool){
     if (asset_docs[dochash] == asset_owner) {
       return true;
     }else{
