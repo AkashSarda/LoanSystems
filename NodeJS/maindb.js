@@ -41,11 +41,6 @@ connection.connect(function(err) {
     console.log("Number of records inserted: " + result.affectedRows);
     });
   }
-  console.log(addMapping('vijesh','54646257987854123135'));
-  connection.query("select * from mapping",function(err,result){
-    if(err) throw err;
-    console.log(result);
-  })
 
   connection.end();
 });
