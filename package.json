@@ -6,6 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Vijesh Ghandare",
+  "authors": "Team EthLenders",
   "license": "MIT"
 }
