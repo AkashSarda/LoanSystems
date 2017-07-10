@@ -1,5 +1,4 @@
 pragma solidity ^0.4.4;
-
 contract System{
     struct Lenders{
       uint balance;
@@ -17,8 +16,7 @@ contract System{
     event Deposit(address lender, uint amount);
     event DebtPaid(uint contract_bal,address sender_addrs,uint sender_bal);
     event Money_Borrowed(uint contract_bal,address sender_addrs,uint sender_bal);
-    bool valid;
-
+    
     address public owner;
 
     function System(){
@@ -27,77 +25,64 @@ contract System{
 
     function registerLender(){
       lenders[msg.sender].balance = 0;
-      
     }
 
     function registerBorrower(){
       borrowers[msg.sender].amount = 0;
-      
       borrowers[msg.sender].borrowed = false;
     }
 
-    function lend() payable{
+    function lend() payable public returns(uint){
       lenders[msg.sender].balance += msg.value;
       Deposit(msg.sender, msg.value);
+      return lenders[msg.sender].balance;
     }
 
-    function borrow_money(uint money) returns (bool) {
+    function borrow_money(uint money) public returns (bool) {
       if(borrowers[msg.sender].borrowed == false) {
-        if(msg.sender.send(money)){
-          valid = true;
-//          lenders[lender_address] -= money;
+        msg.sender.transfer(money);
           borrowers[msg.sender].borrowed = true;
-          borrowers[msg.sender].amount += money;          
+          borrowers[msg.sender].amount += money;
           Money_Borrowed(this.balance,msg.sender,msg.sender.balance);
-        }else{
-          valid = false;
-        }
-
-        return valid;
+        return true;
       }
       else{
         return false;
       }
     }
 
-    function getBalance(address addrs) returns(uint){
-        return addrs.balance;
+    function getBalance(address addr) public returns(uint){
+        return addr.balance;
     }
-
-    function pay_debts() payable returns (bool){
+    function lenderBalance() constant public returns(uint){
+        return lenders[msg.sender].balance;
+    }
+    function borrowerBalance() constant public returns(uint){
+        return borrowers[msg.sender].amount;
+    }
+    function pay_debts() payable public returns (bool){
       if (borrowers[msg.sender].borrowed == true) {
           borrowers[msg.sender].amount -= msg.value;
           if (borrowers[msg.sender].amount == 0){
             borrowers[msg.sender].borrowed = false;
           }
-
-          valid = true;
           DebtPaid(this.balance,msg.sender,msg.value);
-
-          return valid;
-
-      }else{
-
+          return true;
+      }
+      else{
         return false;
-
       }
     }
 
-
-    function withdrawFunds(uint money) returns  (bool) {
+    function withdrawFunds(uint money) public returns  (bool) {
       if (lenders[msg.sender].balance >= money){
-        valid = false;
-        if(msg.sender.send(money)){
-          valid = true;
+        msg.sender.transfer(money);
           lenders[msg.sender].balance -= money;
-        }else{
-          valid = false;
-        }
-
-        return valid;
-      }else{
+        return true;
+      }
+      else{
         return false;
       }
-
     }
 }
+

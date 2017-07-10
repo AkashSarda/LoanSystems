@@ -12,3 +12,5 @@ button#register { background-color: yellow; }
 button#lend { background-color: #98fb98; }
 button#withdraw { background-color: pink; }
 button#getBalance { background-color: #add8e6; }
+button#borrow {background-color: pink}
+button#payDebt {background-color: #98fb98}

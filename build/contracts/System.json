@@ -21,6 +21,19 @@
     },
     {
       "constant": true,
+      "inputs": [],
+      "name": "borrowerBalance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
       "inputs": [
         {
           "name": "",
@@ -93,7 +106,12 @@
       "constant": false,
       "inputs": [],
       "name": "lend",
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
       "payable": true,
       "type": "function"
     },
@@ -128,10 +146,23 @@
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "lenderBalance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [
         {
-          "name": "addrs",
+          "name": "addr",
           "type": "address"
         }
       ],
@@ -212,7 +243,7 @@
       "type": "event"
     }
   ],
-  "unlinked_binary": "0x6060604052341561000c57fe5b5b6002805461010060a860020a03191661010033600160a060020a0316021790555b5b61057f8061003e6000396000f300606060405236156100885763ffffffff60e060020a600035041663155dd5ee811461008a57806328fd10d7146100b1578063545d76ef146100df57806358c1fca7146100fb5780637df21f7a146101225780638da5cb5b1461013457806397dffc6114610160578063bf5d50c41461016a578063e831878d1461019f578063f8b2cb4f146101b1575bfe5b341561009257fe5b61009d6004356101df565b604080519115158252519081900360200190f35b34156100b957fe5b6100cd600160a060020a0360043516610285565b60408051918252519081900360200190f35b61009d610297565b604080519115158252519081900360200190f35b341561010357fe5b61009d600435610376565b604080519115158252519081900360200190f35b341561012a57fe5b610132610472565b005b341561013c57fe5b61014461048e565b60408051600160a060020a039092168252519081900360200190f35b6101326104a2565b005b341561017257fe5b610186600160a060020a03600435166104fd565b6040805192835290151560208301528051918290030190f35b34156101a757fe5b610132610519565b005b34156101b957fe5b6100cd600160a060020a0360043516610542565b60408051918252519081900360200190f35b600160a060020a03331660009081526020819052604081205482901061027b576002805460ff19169055604051600160a060020a0333169083156108fc029084906000818181858888f1935050505015610264576002805460ff19166001179055600160a060020a03331660009081526020819052604090208054839003905561026f565b6002805460ff191690555b5060025460ff1661027f565b5060005b5b919050565b60006020819052908152604090205481565b600160a060020a0333166000908152600160208190526040822081015460ff161515141561036e57600160a060020a0333166000908152600160205260409020805434900390819055151561030b57600160a060020a033316600090815260016020819052604090912001805460ff191690555b6002805460ff1916600117905560408051600160a060020a0330811631825233166020820152348183015290517f6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d89181900360600190a15060025460ff16610372565b5060005b5b90565b600160a060020a03331660009081526001602081905260408220015460ff16151561027b57604051600160a060020a0333169083156108fc029084906000818181858888f1935050505015610264576002805460ff199081166001908117909255600160a060020a033381166000818152602085815260409182902080870180549096169096179094558454870190945583513090921631825291810182905290318183015290517f1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a99181900360600190a161026f565b6002805460ff191690555b5060025460ff1661027f565b50600061027f565b5b919050565b600160a060020a0333166000908152602081905260408120555b565b6002546101009004600160a060020a031681565b600160a060020a0333166000818152602081815260409182902080543490810190915582519384529083015280517fe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c9281900390910190a15b565b6001602081905260009182526040909120805491015460ff1682565b600160a060020a0333166000908152600160208190526040822091825501805460ff191690555b565b600160a060020a038116315b9190505600a165627a7a7230582079734ef2d4dbd69f3e1116c781fd7a3e2192fdbcc4e61b2667a932a3bd11504c0029",
+  "unlinked_binary": "0x6060604052341561000c57fe5b5b60028054600160a060020a03191633600160a060020a03161790555b5b6105e7806100396000396000f3006060604052361561009e5763ffffffff60e060020a600035041663155dd5ee81146100a05780631cbd8380146100c757806328fd10d7146100e9578063545d76ef1461011757806358c1fca7146101335780637df21f7a1461015a5780638da5cb5b1461016c57806397dffc6114610198578063bf5d50c4146101b2578063e831878d146101e7578063eaf3a62e146101f9578063f8b2cb4f1461021b575bfe5b34156100a857fe5b6100b3600435610249565b604080519115158252519081900360200190f35b34156100cf57fe5b6100d76102c7565b60408051918252519081900360200190f35b34156100f157fe5b6100d7600160a060020a03600435166102e4565b60408051918252519081900360200190f35b6100b36102f6565b604080519115158252519081900360200190f35b341561013b57fe5b6100b36004356103c8565b604080519115158252519081900360200190f35b341561016257fe5b61016a6104a2565b005b341561017457fe5b61017c6104be565b60408051600160a060020a039092168252519081900360200190f35b6100d76104cd565b60408051918252519081900360200190f35b34156101ba57fe5b6101ce600160a060020a0360043516610548565b6040805192835290151560208301528051918290030190f35b34156101ef57fe5b61016a610564565b005b341561020157fe5b6100d761058d565b60408051918252519081900360200190f35b341561022357fe5b6100d7600160a060020a03600435166105aa565b60408051918252519081900360200190f35b600160a060020a0333166000908152602081905260408120548290106102bd57604051600160a060020a0333169083156108fc029084906000818181858888f19350505050151561029657fe5b50600160a060020a03331660009081526020819052604090208054829003905560016102c1565b5060005b5b919050565b600160a060020a0333166000908152600160205260409020545b90565b60006020819052908152604090205481565b600160a060020a0333166000908152600160208190526040822081015460ff16151514156103bc57600160a060020a0333166000908152600160205260409020805434900390819055151561036a57600160a060020a033316600090815260016020819052604090912001805460ff191690555b60408051600160a060020a0330811631825233166020820152348183015290517f6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d89181900360600190a15060016102e1565b5060006102e1565b5b90565b600160a060020a03331660009081526001602081905260408220015460ff1615156102bd57604051600160a060020a0333169083156108fc029084906000818181858888f19350505050151561041a57fe5b600160a060020a03338116600081815260016020818152604092839020808301805460ff1916909317909255815487019091558151309094163184528301829052903182820152517f1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a99181900360600190a15060016102c1565b5060006102c1565b5b919050565b600160a060020a0333166000908152602081905260408120555b565b600254600160a060020a031681565b600160a060020a033316600081815260208181526040808320805434908101909155815194855291840191909152805191927fe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c929081900390910190a150600160a060020a0333166000908152602081905260409020545b90565b6001602081905260009182526040909120805491015460ff1682565b600160a060020a0333166000908152600160208190526040822091825501805460ff191690555b565b600160a060020a0333166000908152602081905260409020545b90565b600160a060020a038116315b9190505600a165627a7a7230582082b3ed51e0a4aa8212cac71de015a832a65692a8f9acb2bd660d5e97c9cbce130029",
   "networks": {
     "1498127547763": {
       "events": {
@@ -281,8 +312,756 @@
       "links": {},
       "address": "0xda11ca2684bd18a4e4c6a18fe568ec627c86bd1f",
       "updated_at": 1498127591776
+    },
+    "1498368051294": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x76457d21510f67fd90211d88b8e49eaa19542699",
+      "updated_at": 1498368150049
+    },
+    "1498382116008": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xc66d243b498bd4c3753c3dd40ca117b3b4dd7883",
+      "updated_at": 1498382251631
+    },
+    "1498473757732": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xcd75b2edd82246273c64ef7dfd1fc5b9c935d5c0",
+      "updated_at": 1498473801889
+    },
+    "1498478493414": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xbd0e92438c863dfda477cd51d8796f6c24db4389",
+      "updated_at": 1498478535370
+    },
+    "1498587902616": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x9bad9dd08495d13579bd80c6589cbe9024207155",
+      "updated_at": 1498587951545
+    },
+    "1498590204962": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x81591cb69b51a84372243b08fd04684eff54e8b3",
+      "updated_at": 1498590245450
+    },
+    "1498592964304": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x1fbbfff3f681f7162cf7e5352831404083ebcf1f",
+      "updated_at": 1498593013731
+    },
+    "1498720739660": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x93c2606b70df44b523c0c82e2889f6df177870ba",
+      "updated_at": 1498720825299
+    },
+    "1498755256655": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x0014d48bfdc5e0a88da4e019c3c22ab9083b455c",
+      "updated_at": 1498755333099
+    },
+    "1499259554269": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x80f9e88f5ca3233a531494d02d906e1d4173ceec",
+      "updated_at": 1499259588130
+    },
+    "1499695513199": {
+      "events": {
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "lender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x6fd35d1b6cd68e55a24e529d104fa6abdfa8cd0304a3b5225b49638097e821d8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "DebtPaid",
+          "type": "event"
+        },
+        "0x1c1d473706cc1c7bdd354594c816f5b52fc974e5574911c6206ab4cfffa043a9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "contract_bal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "sender_addrs",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "sender_bal",
+              "type": "uint256"
+            }
+          ],
+          "name": "Money_Borrowed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x2f5d01e8cd881d78382c574683b58b63c018a138",
+      "updated_at": 1499695558823
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1498127591776
+  "updated_at": 1499695558823
 }
