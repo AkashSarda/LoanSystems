@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EthLenders DApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <link href="stylesheets/app.css" rel="stylesheet">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="../javascripts/verifyjs.js"></script>
+</head>
+<body>
+  <h1>EthLenders DApp</h1>
+  <div class="section">
+    Contract deployed at: <div id="contractAddress"></div>
+  </div>
+  <div class="section">
+    Owner: <div id="contractOwner"> </div>
+  </div>
+ <hr/>
+  <div class="section">
+  <h3>Asset Verification:</h3>
+    FirstName: <input type="text" name="firstName" id="firstName"/><br><br>
+  	LastName: <input type="text" name="lastName" id="lastName"/><br><br>
+  	<!--Property Address: <input type="text" name="propAddress" id="propAddress"/><br><br> -->
+  	Eth-Address : <input type="text" name="ethAddress" id="ethAddress"/>
+    <span id="notify"></span> <br><br>
+  	E-mail : <input type="text" name="email" id="email"/><br><br>
+  	Hash Value: <input type="text" name="hashValue" id="hashValue" /><br><br>
+  	Registration Date: <input type="text" name="date" id="date"/><br><br>
+  	Social Security ID: <input type="text" name="secId" id="secId"/><br><br>
+    <button id="Submit">Submit</button>
+    <textarea id = "getVerifyResult" readonly = "true" value = "" hidden="" rows="7" cols="70"></textarea>
+  </div>
+   <hr/>
+</body>
+</html>

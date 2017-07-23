@@ -1,0 +1,71 @@
+{
+  "contract_name": "Asset",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "dochash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "verify",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "dochash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "storeProof",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "type": "constructor"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000c57fe5b5b60008054600160a060020a03191633600160a060020a03161790555b5b610144806100396000396000f300606060405263ffffffff60e060020a60003504166375e3661681146100375780638952877b1461005e5780638da5cb5b14610073575bfe5b341561003f57fe5b61004a60043561009f565b604080519115158252519081900360200190f35b341561006657fe5b6100716004356100d4565b005b341561007b57fe5b610083610109565b60408051600160a060020a039092168252519081900360200190f35b60008181526001602052604081205433600160a060020a03908116911614156100ca575060016100ce565b5060005b5b919050565b60008181526001602052604090208054600160a060020a03191633600160a060020a03161760a060020a60ff02191690555b50565b600054600160a060020a0316815600a165627a7a7230582048af8937139be19b68cc95944026d89c6dc01e1f289a0379063217d6fab6ac420029",
+  "networks": {
+    "1500781901119": {
+      "events": {},
+      "links": {},
+      "address": "0xf02bdbc8baad444fe1e48e1b5d4107d28521554a",
+      "updated_at": 1500787522652
+    },
+    "1500788373881": {
+      "events": {},
+      "links": {},
+      "address": "0x669bdc6d2b9e160a1db3ddf344af8533b1d33d86",
+      "updated_at": 1500788541728
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1500788541728
+}
